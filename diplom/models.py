@@ -8,7 +8,7 @@ class Post(models.Model):
 	last_name = models.CharField(max_length=15)
 	company_name = models.CharField(max_length=15)
 	company_description = models.CharField(max_length=500)
-	working_position = models.CharField(max_length=15)
+	working_position = models.CharField(max_length=20)
 	country = models.CharField(max_length=15)
 	e_mail = models.EmailField(max_length=60)
 	linked_in_reference = models.URLField(max_length=100)

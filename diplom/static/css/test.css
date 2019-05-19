@@ -6,6 +6,16 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+#myInput {
+  background-position: 10px 12px; /* Position the search icon */
+  width: 80%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
 caption {
     color: #ffffff;
     font-size: 20pt;
