@@ -1,6 +1,7 @@
 {% extends 'diplom/base.html' %}
 
 {% block content %}
+	<a href="http://aleksaantipina.pythonanywhere.com/admin/" id="ToAdminConsole">ToAdminConsole </a>
 	<input type="text" id="myInput" onkeyup="searchInTable()" placeholder="Search ...">
 	<table id="myTable" border="1" align="center">
 		<caption>Список специалистов</caption>
@@ -67,23 +68,25 @@ function sortTable(n) {
 }
 
 function searchInTable() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    } 
-  }
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
 }
 </script>
 {% endblock %}
