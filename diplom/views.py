@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from .models import Post
 
 # Create your views here.
 
 def people_list(request):
-	return render(request, 'diplom/people_list.html', {})
+	posts = Post.objects.all()
+	return render(request, 'diplom/people_list.html', {'posts' : posts})

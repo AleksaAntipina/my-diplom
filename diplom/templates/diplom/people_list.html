@@ -1,0 +1,27 @@
+{% extends 'diplom/base.html' %}
+
+{% block content %}
+	<table border="1" align="center">
+		<caption>Список специалистов</caption>
+		<tr>
+			<th>Имя</th>
+			<th>Фамилия</th>
+			<th>Компания</th>
+			<th>Описание компании</th>
+			<th>Должность</th>
+			<th>Страна</th>
+			<th>e-mail</th>
+			<th>LinkedIn</th>
+		</tr>
+		{% for post in posts %}
+			<td>{{ post.first_name }}</td>
+			<td>{{ post.last_name }}</td>
+			<td>{{ post.company_name }}</td>
+			<td>{{ post.company_description }}</td>
+			<td>{{ post.Working_position }}</td>
+			<td>{{ post.country }}</td>
+			<td>{{ post.e_mail }}</td>
+			<td><a href="{{ post.linked_in_reference }}">{{ post.linked_in_reference }}</a></td>
+		{% endfor %}
+	</table>
+{% endblock %}
